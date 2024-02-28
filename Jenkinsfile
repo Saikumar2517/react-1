@@ -1,26 +1,38 @@
 pipeline {
     agent any
-    tools { 'node:node' }
 
-    stages('checkout') {
-        stage {
+    tools {
+        // Define Node.js and npm installations
+        nodejs 'nodejs' // Name of the Node.js tool in Jenkins configuration
+    }
+
+    stages {
+        stage('Checkout') {
             steps {
+                // Checkout your Git repository
                 git credentialsId: 'b2f40516-fe7e-4d00-b5c7-a40cf058cc2c', url: 'https://github.com/Saikumar2517/react-1.git'
             }
         }
-    }
-    stages('Install Dependencies') {
-        stage {
+
+        stage('Install Dependencies') {
             steps {
-                sh 'npm i'
+                // Install project dependencies
+                sh 'npm install'
             }
         }
-    }
-    stages('Build') {
-        stage {
+
+        stage('Build') {
             steps {
+                // Build the React application
                 sh 'npm run build'
             }
         }
+
+        stage('test') {
+            steps {
+                sh 'echo test'
+            }
+        }
     }
+
 }
