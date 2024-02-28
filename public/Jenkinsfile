@@ -9,7 +9,7 @@ pipeline {
             }
         }
     }
-    stages('install dependences') {
+    stages('Install Dependencies') {
         stage {
             steps {
                 sh 'npm i'
