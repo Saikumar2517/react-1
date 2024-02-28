@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Define Node.js and npm installations
-        nodejs 'nodejs' // Name of the Node.js tool in Jenkins configuration
+        nodejs 'node' // Name of the Node.js tool in Jenkins configuration
     }
 
     stages {
